@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightblue;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+.list__topping {
+    font-size:16px;
+    margin: auto;
+}
+
+.submit{
+    background-color: lightcyan;
+}
+.submit__form{
+    background-color: lightcyan;
+}
+.submit__label{
+    background-color: lightcyan;
+}
+.submit__input{
+    background-color: lightcyan;
+    color: black;
+}
+.submit__button{
+    background-color: lightcyan;
+}
