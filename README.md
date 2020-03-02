@@ -131,9 +131,15 @@ We first need to make a couple of directories to store our HTML, CSS, JSON data 
 5. Inside our `views` folder, create a `index.html` file.
 6. Inside our `data` folder, create a `toppings.json` file.
 
+Now that we have our directories and files set, let's make the magic happen.
 
+First, let's fill up our `toppings.json` file with some data. For our pizza toppings website we are going to use pizza toppings as our data (duh?). I decided to make the data with a description and a list, like so:
 
-I started by making a simple blank webpage with a link to my `toppings.json` file.
+![npm Init command output](public/assets/process1_json.png)
+
+QUICK NOTE: For the purpose of this demonstration `pineapple` appears on the list, however, I would kindly recommend you reconsider. 
+
+Anyways, once we have our data set, let's setup a simple html and css file to display our information. I started by making a simple blank webpage with a link to my `toppings.json` file. Though this is not necessary (you can see the `toppings.json` file directly in your code editor) it's a good way to test your access to the API once you have everything setup.
 
 ![Link to my API/Pizza topping in JSON format.](public/assets/process0.png)
 
