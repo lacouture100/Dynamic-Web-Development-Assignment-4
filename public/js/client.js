@@ -82,7 +82,7 @@ function deleteTopping(topping) {
 }
 
 function submitTopping() {
-  //look for the topping submit form
+  //look for the topping submit form button
   const submitButton = document.querySelector('.submit__button');
   //execute a function when the submit button is clicked
   submitButton.onclick = async () => {
