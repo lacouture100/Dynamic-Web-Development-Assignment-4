@@ -72,7 +72,7 @@ My process began with going through the [Back-end foundations workbook](https://
 
 ### Process & Documentation
 
-#### Setting up your environment
+#### Setting up our environment
 
 We are going to run a server using server side Javascript and Node.js. To follow this guide please start in an empty directory/folder where you want your project to be.
 
@@ -120,9 +120,17 @@ Once we have our server setup, these commands will later on allow us to run it.
 
 Now that we have solved our npm packages, let's start developing our web server.
  
-#### Setting up your web app
+#### Setting up our web app
 
-Let's make a `public` folder 
+We first need to make a couple of directories to store our HTML, CSS, JSON data file, and our client.js code. No problem. 
+
+1. Let's make a `public` folder, a `data` folder, and a `views` folder. 
+2. Inside our `public` folder, let's create a `css` and a `js` folder. 
+3. Inside our `public/css` folder, create a `style.css` file.
+4. Inside our `public/js` folder, create a `client.js` file.
+5. Inside our `views` folder, create a `index.html` file.
+6. Inside our `data` folder, create a `toppings.json` file.
+
 
 
 I started by making a simple blank webpage with a link to my `toppings.json` file.
