@@ -140,10 +140,6 @@ First, let's fill up our `toppings.json` file with some data. For our pizza topp
 
 QUICK NOTE: For the purpose of this demonstration `pineapple` appears on the list, however, I would kindly recommend you reconsider. 
 
-Anyways, once we have our data set, let's setup a simple html file to display our information. I started by making a simple blank webpage with a link to my `toppings.json` file. Though this is not necessary (you can see the `toppings.json` file directly in your code editor) it's a good way to test your access to the API once you have everything setup.
-
-![Link to my API/Pizza topping in JSON format.](public/assets/process0.png)
-
 Now we can finally start setting up our web server. Let's head into our `server.js` file and start importing the libraries we need. Import our `express`, `path`, and `fs` node packages. 
 
 ```
@@ -266,6 +262,27 @@ app.listen(port, () => console.log(`Server app listening on port ${port}!`))
 ```
 
 #### Client Side
+
+Well, the first we might want to do is see if our client is displaying the information correctly. Let's setup a simple html file to display our information. I started by making a simple blank webpage with a link to my `toppings.json` file. Though this is not necessary (you can see the `toppings.json` file directly in your code editor) it's a good way to test your access to the API once you have everything setup.
+
+![Link to my API/Pizza topping in JSON format.](public/assets/process0.png)
+
+```
+    <a href="/toppings">
+        <h2>Toppings here!</h2>
+    </a>
+```
+
+We can run our server to check if the link is working. In order to do it open the terminal in your project directory and type in the following command:
+
+```
+npm start
+```
+You should receive the following message in your console.
+
+![Link to my API/Pizza topping in JSON format.](public/assets/serverRun.PNG)
+
+Once we have this running, we can go ahead and define our functions for the client side. 
 
 
 
