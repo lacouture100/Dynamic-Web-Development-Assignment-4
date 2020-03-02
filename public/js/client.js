@@ -7,8 +7,8 @@ window.addEventListener('DOMContentLoaded', () => {
   submitTopping();
 })
 
-function loadToppings() {
-  fetch(url)
+async function loadToppings() {
+  await fetch(url)
     .then(response => {
       //convert the incoming message into JSON format
       return response.json()
@@ -55,22 +55,27 @@ function loadToppings() {
         toppingList.appendChild(toppingContainer);
         //when the user click the delete topping button it deletes it's div and db register
         toppingButton.onclick = async () => {
-          deleteTopping(element);
+          await deleteTopping(element);
         }
       });
     })
 }
 
 function deleteTopping(topping) {
+  //get the topping div
   const toppingContainer =  document.getElementById(`topping__${topping}`);
+  //removethe topping div
   toppingContainer.remove();
-  console.log(`/toppings/${topping}`)
+      //console log the success message
+  console.log(`Success! ${topping} removed!`)
+  //send the DELETE request for the selected topping
   fetch(`/toppings/${topping}`, 
   {
     method: "DELETE",
     headers: {
       'Content-Type': 'application/json'
     }
+    //send the json request
   }).then(res => res.json())
 }
 
@@ -80,11 +85,13 @@ function submitTopping() {
   //execute a function when the submit button is clicked
   submitButton.onclick = async () => {
     //look for the input field
-    const toppingInput = await document.querySelector('.submit__input');
+    const toppingInput = document.querySelector('.submit__input');
     //grab the value in the input field
     const topping = toppingInput.value;
+    //If topping input field is not empty make the request
     if(topping !== ""){
-    fetch(url, {
+      //wait for the url response
+    await fetch(url, {
       //Define the request message
       method: "POST",
       //converts JSON into a string to be sent as the body
@@ -96,13 +103,14 @@ function submitTopping() {
         'Content-Type': 'application/json'
       }
     })
+    //console log the success message
+    console.log(`Success! ${topping} added!`)
     //set input value back to blank
     toppingInput.value = "";
   } else {
     //Alert the user they can't leace the input field empty
     alert("There's no such thing as an empty topping! Try again");
   }
-    
   };
 }
 

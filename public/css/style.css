@@ -2,13 +2,20 @@
     box-sizing: border-box;
 }
 
+
+h1{
+    color: whitesmoke;
+}
+
+h2{
+    color: whitesmoke;
+}
 body {
     background-color: rgb(58, 58, 58);
     justify-content: space-between;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
 }
 
 .list {
@@ -37,10 +44,6 @@ body {
     display: block;
     font-size:16px;
     width: 80%;
-}
-
-.submit{
-
 }
 .submit__form{
     background-color: lightcyan;

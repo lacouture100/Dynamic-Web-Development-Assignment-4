@@ -25,7 +25,6 @@ app.get('/about', (req, res) => res.sendFile(aboutPath))
 function getToppings() {
     //grab the toppings json from the data folder on root
     const toppingsJSON = fs.readFileSync(path.join(__dirname, '/data/toppings.json'));
-    console.log(__dirname+ 'data/toppings.json')
     //parse the toppings json
     const toppings = JSON.parse(toppingsJSON);
     return toppings
@@ -48,7 +47,6 @@ function deleteTopping(deleteTopping) {
     toppings.pizzaToppings = toppings.pizzaToppings.filter(topping => topping !== deleteTopping);
     //update the pizzaToppings file with the new toppings
     fs.writeFileSync(path.join(__dirname, '/data/toppings.json'), JSON.stringify(toppings));
-    console.log( path.join(__dirname, "/data/toppings.json"))
     return toppings
 }
 
