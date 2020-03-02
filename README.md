@@ -139,10 +139,91 @@ First, let's fill up our `toppings.json` file with some data. For our pizza topp
 
 QUICK NOTE: For the purpose of this demonstration `pineapple` appears on the list, however, I would kindly recommend you reconsider. 
 
-Anyways, once we have our data set, let's setup a simple html and css file to display our information. I started by making a simple blank webpage with a link to my `toppings.json` file. Though this is not necessary (you can see the `toppings.json` file directly in your code editor) it's a good way to test your access to the API once you have everything setup.
+Anyways, once we have our data set, let's setup a simple html file to display our information. I started by making a simple blank webpage with a link to my `toppings.json` file. Though this is not necessary (you can see the `toppings.json` file directly in your code editor) it's a good way to test your access to the API once you have everything setup.
 
 ![Link to my API/Pizza topping in JSON format.](public/assets/process0.png)
 
+Now we can finally start setting up our web server. Let's head into our `server.js` file and start importing the libraries we need. Import our `express`, `path`, and `fs` node packages. 
+
+```
+//Required node packages
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
+```
+Let's also define the port where we are going to launch our web server. 
+```
+const port = 3000;
+```
+We will define our express package inside a variable `app` to access it easier. We will also use the `__dirname` variable to replace our absolute directory path. You may read more about what an absolute path is [here.](https://www.computerhope.com/issues/ch001708.htm) 
+
+```
+//define express inside of a variable
+const app = express();
+
+//define my static server files directory, in this case the 'public' folder
+//__dirname is the absolute path of the directory containing the currently executing file.
+app.use(express.static(__dirname + '/public'));
+
+//It parses incoming and outgoing requests with JSON payloads(it means it converts them into JSON-formatted text)
+app.use(express.json());
+```
+Now let's define the path to our `index.html` file and our `css` file for our server to run them.
+
+```
+//absolute path to my index.html file. 
+//__dirname is the absolute path of the directory containing the currently executing file.
+const indexPath = path.join(__dirname, 'views/index.html');
+
+```
+Now let's define where a `/` request will send us. This is what will define our address `localhost:3000/`  will take us to the content defined in our `index.html` file.
+
+```
+//a '/' request will send you to the index.html file
+app.get('/', (req, res) => res.sendFile(indexPath))
+
+```
+
+Our next step is to define what will happen when our server receives GET, POST, or DELETE requests from a client. We can say this can be defined as:
+
+1. GET - What happens when a client requests what data is currently in our `toppings.json` file.
+2. POST - What happens when a client requests to add data to our `toppings.json` file.
+3. DELETE - What happens when a client requests to delete data in our `toppings.json` file.
+
+We can define each of these in the three following functions:
+
+```
+//Define our GET function.
+function getToppings() {
+    //grab the toppings json from the data folder on root
+    const toppingsJSON = fs.readFileSync(path.join(__dirname, '/data/toppings.json'));
+    //parse the toppings json
+    const toppings = JSON.parse(toppingsJSON);
+    return toppings
+}
+
+//Define our POST function.
+function addTopping(topping) {
+    //read from the toppings json before adding a topping
+    const toppings = getToppings();
+    //add the topping to the 'pizzaToppings' item in the json
+    toppings.pizzaToppings.push(topping);
+    //update the pizzaToppings file with the new toppings
+    fs.writeFileSync(path.join(__dirname, '/data/toppings.json'), JSON.stringify(toppings));
+    return toppings
+}
+
+//Define our DELETE function.
+function deleteTopping(deleteTopping) {
+    //read from the toppings json before deleting a topping
+    const toppings = getToppings();
+    //Only keep the toppings that are different from the deleteTopping variable
+    toppings.pizzaToppings = toppings.pizzaToppings.filter(topping => topping !== deleteTopping);
+    //update the pizzaToppings file with the new toppings
+    fs.writeFileSync(path.join(__dirname, '/data/toppings.json'), JSON.stringify(toppings));
+    return toppings
+}
+```
 
 
 ***
