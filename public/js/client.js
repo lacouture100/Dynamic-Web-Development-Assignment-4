@@ -1,4 +1,4 @@
-//My aPI endpoint
+//My API endpoint
 const url = '/toppings'
 
 //Load when the DOM is loaded

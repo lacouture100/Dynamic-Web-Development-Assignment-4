@@ -62,6 +62,10 @@ body {
     background-color: rgba(224, 255, 255, 0.021);
     color: blanchedalmond;
     width: 30%;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+
 
 }
 .submit__input{
