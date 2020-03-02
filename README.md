@@ -87,9 +87,6 @@ I started by making a simple blank webpage with a link to my `toppings.json` fil
 - I could not get the website to run correctly when the `style.css` file was in the `public/css` folder. I got the following mistake `Refused to apply style from 'http://localhost:3000/assets/css/style.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.`
 ***FIXED!: added `type="text/css"` to the `<style>` tag in the html file.
 
-
-  ***It works now***
-
 ## Questions
 - In practical terms, at least in this example, what is the use of a PUT request in addition to a POST?
 - Ok so now my data can be accessed...How can I keep my data in MY server on MY computer without having to upload it? How can I filter users, requests, etc beyond an access key?
