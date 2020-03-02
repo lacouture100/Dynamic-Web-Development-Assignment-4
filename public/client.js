@@ -5,7 +5,6 @@ const url = '/toppings'
 window.addEventListener('DOMContentLoaded', () => {
   loadToppings();
   submitTopping();
-
 })
 
 function loadToppings() {
@@ -54,7 +53,7 @@ function loadToppings() {
 
         //append the empty containers of toppings onto the DOM body
         toppingList.appendChild(toppingContainer);
-
+        //when the user click the delete topping button it deletes it's div and db register
         toppingButton.onclick = async () => {
           deleteTopping(element);
         }
@@ -63,7 +62,7 @@ function loadToppings() {
 }
 
 function deleteTopping(topping) {
-  const toppingContainer = document.getElementById(`topping__${topping}`);
+  const toppingContainer =  document.getElementById(`topping__${topping}`);
   toppingContainer.remove();
   console.log(`/toppings/${topping}`)
   fetch(`/toppings/${topping}`, 
@@ -78,14 +77,13 @@ function deleteTopping(topping) {
 function submitTopping() {
   //look for the topping submit form
   const submitButton = document.querySelector('.submit__button');
-
   //execute a function when the submit button is clicked
   submitButton.onclick = async () => {
     //look for the input field
-    const toppingInput = document.querySelector('.submit__input');
+    const toppingInput = await document.querySelector('.submit__input');
     //grab the value in the input field
     const topping = toppingInput.value;
-
+    if(topping !== ""){
     fetch(url, {
       //Define the request message
       method: "POST",
@@ -100,6 +98,11 @@ function submitTopping() {
     })
     //set input value back to blank
     toppingInput.value = "";
+  } else {
+    //Alert the user they can't leace the input field empty
+    alert("There's no such thing as an empty topping! Try again");
+  }
+    
   };
 }
 

@@ -3,20 +3,26 @@
 }
 
 body {
-    background-color: lightblue;
+    background-color: rgb(58, 58, 58);
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
 }
 
 .list {
     display: flex;
     flex-direction: column;
+    justify-items: center;
+    width: 50vw;
 }
 
 .topping{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: no-wrap;
-    width: 50vw;
+    justify-items: center;
+    
 }
 
 .topping__name {
@@ -30,23 +36,29 @@ body {
 .topping__button {
     display: block;
     font-size:16px;
- 
     width: 80%;
 }
 
 .submit{
-    background-color: lightcyan;
+
 }
 .submit__form{
     background-color: lightcyan;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 40%;
+
 }
 .submit__label{
     background-color: lightcyan;
 }
 .submit__input{
-    background-color: lightcyan;
+    background-color: white;
     color: black;
+    width: 100%;
 }
 .submit__button{
     background-color: lightcyan;
+    width: 40%;
 }
