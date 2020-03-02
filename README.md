@@ -121,6 +121,7 @@ Once we have our server setup, these commands will later on allow us to run it.
 Now that we have solved our npm packages, let's start developing our web server.
  
 #### Setting up our web app
+#### Server Side
 
 We first need to make a couple of directories to store our HTML, CSS, JSON data file, and our client.js code. No problem. 
 
@@ -168,7 +169,7 @@ app.use(express.static(__dirname + '/public'));
 //It parses incoming and outgoing requests with JSON payloads(it means it converts them into JSON-formatted text)
 app.use(express.json());
 ```
-Now let's define the path to our `index.html` file and our `css` file for our server to run them.
+Now let's define the path to our `index.html` file our server to run it.
 
 ```
 //absolute path to my index.html file. 
@@ -224,6 +225,48 @@ function deleteTopping(deleteTopping) {
     return toppings
 }
 ```
+After we define our functions, let's implement them into our `express` GET, POST, and DELETE functions as well.
+
+```
+//Express GET request
+app.get("/toppings", (req, res) => {
+    //read from the toppings json
+    const toppings = getToppings();
+    // Updated list will be returned by API
+    res.json(toppings);
+});
+
+//Express POST request
+app.post("/toppings", (req, res) => {
+    //grab the 'topping' from the POST request. The request must be in the {"topping":"whatever"} format.
+    const topping = req.body.topping;
+    //add the topping to the toppings list
+    const toppings = addTopping(topping);
+    // Updated list will be returned by API
+    res.json(toppings);
+});
+
+//Express DELETE request
+app.delete("/toppings/:name", (req, res) => {
+    //set the name at the end of the request as the name of the topping to delete
+    const toppingToDelete = req.params.name;
+    //update the toppings file after deleting the topping
+    const toppings = deleteTopping(toppingToDelete);
+    // Updated list will be returned by API
+    res.json(toppings);
+});
+
+```
+
+Finally, let's open our previously defined port and listen to incoming requests using `express`.
+
+```
+//Open the port
+app.listen(port, () => console.log(`Server app listening on port ${port}!`))
+```
+
+#### Client Side
+
 
 
 ***

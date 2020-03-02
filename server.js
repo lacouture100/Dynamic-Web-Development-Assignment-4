@@ -22,6 +22,7 @@ app.get('/', (req, res) => res.sendFile(indexPath))
 //an '/about' request will send you to the about.html file
 app.get('/about', (req, res) => res.sendFile(aboutPath))
 
+//Define our GET function.
 function getToppings() {
     //grab the toppings json from the data folder on root
     const toppingsJSON = fs.readFileSync(path.join(__dirname, '/data/toppings.json'));
@@ -30,6 +31,7 @@ function getToppings() {
     return toppings
 }
 
+//Define our POST function.
 function addTopping(topping) {
     //read from the toppings json before adding a topping
     const toppings = getToppings();
@@ -40,6 +42,7 @@ function addTopping(topping) {
     return toppings
 }
 
+//Define our DELETE function.
 function deleteTopping(deleteTopping) {
     //read from the toppings json before deleting a topping
     const toppings = getToppings();
@@ -50,6 +53,7 @@ function deleteTopping(deleteTopping) {
     return toppings
 }
 
+//Express GET request
 app.get("/toppings", (req, res) => {
     //read from the toppings json
     const toppings = getToppings();
@@ -57,6 +61,7 @@ app.get("/toppings", (req, res) => {
     res.json(toppings);
 });
 
+//Express POST request
 app.post("/toppings", (req, res) => {
     //grab the 'topping' from the POST request. The request must be in the {"topping":"whatever"} format.
     const topping = req.body.topping;
@@ -66,6 +71,7 @@ app.post("/toppings", (req, res) => {
     res.json(toppings);
 });
 
+//Express DELETE request
 app.delete("/toppings/:name", (req, res) => {
     //set the name at the end of the request as the name of the topping to delete
     const toppingToDelete = req.params.name;
