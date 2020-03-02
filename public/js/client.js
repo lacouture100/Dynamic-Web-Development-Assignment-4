@@ -29,7 +29,9 @@ async function loadToppings() {
         const toppingContainer = document.createElement("div");
         //set the containers' class
         toppingContainer.setAttribute("class", "topping");
+        //set the container's unique id
         toppingContainer.setAttribute("id", `topping__${element}`);
+        //Set a random background color for each topping
         randomBackground(toppingContainer);
 
 
@@ -115,9 +117,10 @@ function submitTopping() {
 }
 
 function randomBackground(container) {
-  const r = Math.floor(Math.random() * 200);
-  const g = Math.floor(Math.random() * 200);
-  const b = Math.floor(Math.random() * 200);
+  const maxRange = 150;
+  const r = Math.floor(Math.random() * maxRange);
+  const g = Math.floor(Math.random() * maxRange);
+  const b = Math.floor(Math.random() * maxRange);
   container.style.backgroundColor = `rgb(${r},${g},${b})`;
 
 }
