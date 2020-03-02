@@ -5,7 +5,7 @@
 ***
 This repository contains my fourth assignment for the Dynamic Web Development Class at ITP. The assignment contains a website that displays a list of toppings you choose to include in a virtual pizza. This project consists of a website made with CSS, HTML, and JS using the fetch API/ GET method to access data from an online API made by me and display it interactively on a webpage. 
 
-![8 bit pizza image](assets/pizza.png)
+![8 bit pizza image](public/assets/pizza.png)
 
 ## Setup
 ***
@@ -75,7 +75,7 @@ My process began with going through the [Back-end foundations workbook](https://
 
 I started by making a simple blank webpage with a link to my `toppings.json` file.
 
-![Link to my API/Pizza topping in JSON format.](assets/process0.png)
+![Link to my API/Pizza topping in JSON format.](public/assets/process0.png)
 
 
 
@@ -84,7 +84,7 @@ I started by making a simple blank webpage with a link to my `toppings.json` fil
 ## Challenges & Struggles
 
 - I had some trouble deciding when to implement the `async` and `await` into the requests. However, I managed to implemented it in different ways in every functions to learn how.
-- I could not get the website to run correctly when the `style.css` file was in the `public/css` folder. I got the following mistake `Refused to apply style from 'http://localhost:3000/assets/styles/custom-style.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.`
+- I could not get the website to run correctly when the `style.css` file was in the `public/css` folder. I got the following mistake `Refused to apply style from 'http://localhost:3000/assets/css/style.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.`
 ***FIXED!: added `type="text/css"` to the `<style>` tag in the html file.
 
 
