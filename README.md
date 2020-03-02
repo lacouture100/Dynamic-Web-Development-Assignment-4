@@ -65,13 +65,65 @@ To develop this document, you can follow the steps provided below:
 * [The Good Project Readme Project](https://github.com/itp-dwd/2020-spring/blob/master/templates/readme-template.md)
 
 ***
-# Notes & Process
+## Notes & Process
 
 I urge you to look into the files to see what's going on. Each line of code is commented.
 My process began with going through the [Back-end foundations workbook](https://github.com/itp-dwd/back-end-foundations-workbook) provided by Joey and Cassie. Following the guide, I went through the process of creating a server, a client, and a database to manipulate data with Node. Though I would have liked to make some kind of attractive UI, I'm satisfied it works how it's supposed to.
 
-## Process & Documentation
-IN PROCESS!!!
+### Process & Documentation
+
+#### Setting up your environment
+
+We are going to run a server using server side Javascript and Node.js. To follow this guide please start in an empty directory/folder where you want your project to be.
+
+We will start by creating our directories. I will use terminal commands for the next steps, but you are welcome to use any other method your are comfortable with.
+
+Let's first create our server file in the root directory.
+
+```
+touch server.js
+```
+To create our web server we will be using several Node.js packages. You can think of them as libraries to use with node to make everything easier. In our case, we will be using the `Express`, `fs`, and `path` packages. First we need to tell `npm` we will be using these dependencies in our development environment. The following command creates the `package.json` file, which enumerates our packages for npm.
+
+```
+npm init
+```
+If everything is installed correctly you should see something similar to this:
+
+![npm Init command output](public/assets/npminit0.png)
+
+To accept the details npm is giving us press the `Enter` key to accept or `ctrl + C` on your keyboard to quit. These details may be customized to an extent. Our package name, for example, is the folder's name. Our version and git repository may also be set right away. Don't worry about this for now, it may be changed later. However, for this project we need to make sure our "main" parameter has a reference to our server.js file, as seen below:
+
+![npm Init command output](public/assets/npminit.png)
+
+After you have confirmed we can now install our dependencies. Type in the following commands:
+
+```
+npm install express
+npm install fs
+npm install path
+touch .gitignore
+```
+
+This `.gitignore` file is made for when we upload our folder into Github, it tells git which files (or patterns) it should ignore. Open the file and copy the following text into it:
+
+```
+node_modules  
+.DS_Store
+```
+
+We have one last step to do before we can start coding our web server. Open your `package.json` file and cheack to see if you have the `"scripts"` field with the following entries:
+
+![npm Init command output](public/assets/packageJson.png)
+
+Once we have our server setup, these commands will later on allow us to run it.
+
+Now that we have solved our npm packages, let's start developing our web server.
+ 
+#### Setting up your web app
+
+Let's make a `public` folder 
+
 
 I started by making a simple blank webpage with a link to my `toppings.json` file.
 
